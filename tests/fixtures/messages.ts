@@ -11,7 +11,7 @@ export const initialMessages: ChatMessageModel[] = [
   },
   {
     author: 'bot', text: `
-Hello, this is Bing. Based on online search results, I have found the following three best-selling pet vacuum cleaners and their advantages and disadvantages:
+Hello, this is AI. Based on online search results, I have found the following three best-selling pet vacuum cleaners and their advantages and disadvantages:
 
 - **Dyson V10 Lightweight Digital Slim Fluffy Cordless Vacuum Cleaner** [^1^] [^3^]: This vacuum cleaner is designed for pet homes, featuring powerful suction and versatile nozzles to effectively remove pet hair and dust.
   - Pros: Lightweight and easy to use, long battery life, advanced filtration system that effectively removes allergens.
@@ -28,7 +28,7 @@ I hope this information is helpful. If you have any further questions, feel free
   },
   { author: 'user', text: 'Today\'s news', id: '4' },
   {
-    author: 'bot', text: `Hello, this is Bing. Based on your search query for "Today's news," I have found the following information:
+    author: 'bot', text: `Hello, this is AI. Based on your search query for "Today's news," I have found the following information:
 
   # Chinese News
   - "Qiushi" magazine publishes an important article by General Secretary Xi Jinping on deepening party and state institution reforms to advance the modernization of the national governance system and capacity [^1^].
