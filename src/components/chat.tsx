@@ -56,6 +56,7 @@ export default function Chat({ className }: ChatProps) {
   const lastMessage = messages[messages.length - 1]
 
   return (
+    <div className={cn(bingStyle.toLowerCase(), { 'side-panel-expanded': expand })}>
       <PromptsManage insertPrompt={setInput} />
       <ChatHistory onExpaned={onExpaned} />
       <div className="global-background" />
