@@ -100,22 +100,22 @@ export class BingWebBot {
     const uuid = randomUUID()
     const useBaseSets = (conversation.context?.length ?? 0) > 0
     const message = {
-      locale: 'zh-CN',
-      market: 'zh-CN',
-      region: 'CN',
+      locale: 'en-US',
+      market: 'en-US',
+      region: 'US',
       locationHints: [
         {
           "SourceType": 1,
           "RegionType": 2,
           "Center": {
-            "Latitude": 39.9042,
-            "Longitude": 116.4074,
+            "Latitude": 34.0536909,
+            "Longitude": -118.242766,
           },
           "Radius": 24902,
-          "Name": "China",
+          "Name": "United States",
           "Accuracy": 24902,
           "FDConfidence": 0,
-          "CountryName": "China",
+          "CountryName": "United States",
           "CountryConfidence": 9,
           "PopulatedPlaceConfidence": 0,
           "UtcOffset": 8,
@@ -213,7 +213,7 @@ export class BingWebBot {
     }
 
     if (!resp?.result) {
-      throw new ChatError('你的 VPS 或代理可能被封禁，如有疑问，请前往 https://github.com/weaigc/bingo 咨询', ErrorCode.BING_IP_FORBIDDEN)
+      throw new ChatError('Your VPS or proxy may be banned', ErrorCode.BING_IP_FORBIDDEN)
     }
 
     const { value, message } = resp.result || {}
@@ -349,7 +349,7 @@ export class BingWebBot {
       unpackMessage: websocketUtils.unpackMessage,
       createWebSocket: (url) => new WebSocket(url, {
         headers: {
-          'accept-language': 'zh-CN,zh;q=0.9',
+          'accept-language': 'en-US,en;q=0.9',
           'cache-control': 'no-cache',
           "user-agent": "Mozilla/5.0 (Linux; Android 7.1.1; OPPO R11t) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36 EdgA/108.0.1462.4",
           pragma: 'no-cache',
