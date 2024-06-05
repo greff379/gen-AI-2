@@ -52,58 +52,5 @@ export default function Chat({ className }: ChatProps) {
   const onExpaned = () => {
     setExpand(true)
   }
-
-  const lastMessage = messages[messages.length - 1]
-
-  return (
-   
-      <PromptsManage insertPrompt={setInput} />
-      <ChatHistory onExpaned={onExpaned} />
-      <div className="global-background" />
-      <Settings />
-      <div className="flex justify-center left-0 w-full">
-        <div className={cn('main-root items-center flex-1 pb-16', className)}>
-          <div className="main-content">
-            <ChatHeader />
-            <WelcomeScreen setInput={setInput} />
-            <ToneSelector type={bingStyle} onChange={setBingStyle} />
-            <AdvanceSwither disabled={messages.length >= 2} />
-            {messages.length ? (
-              <>
-                <ChatList messages={messages} />
-                <ChatScrollAnchor trackVisibility={generating} />
-                <ChatNotification message={lastMessage} bot={bot} />
-                {lastMessage?.suggestedResponses && <ChatSuggestions setInput={setInput} suggestions={lastMessage?.suggestedResponses} />}
-
-                {generating ? (
-                  <div className="flex h-10 items-center justify-center my-4">
-                    <button
-                      onClick={stopGenerating}
-                      className="typing-control-item stop"
-                    >
-                      <SVG alt="stop" src={StopIcon} width={24} className="mr-1" />
-                      <span>Stopped Responding</span>
-                    </button>
-                  </div>
-                ) : null}
-              </>
-            ) : null}
-          </div>
-        </div>
-      </div>
-      <ChatPanel
-        className="pt-24 z-10"
-        isSpeaking={isSpeaking}
-        generating={generating}
-        sendMessage={sendMessage}
-        input={input}
-        setInput={setInput}
-        resetConversation={resetConversation}
-        uploadImage={uploadImage}
-        attachmentList={attachmentList}
-        setAttachmentList={setAttachmentList}
-      />
-      <ButtonScrollToBottom />
-  
   )
 }
