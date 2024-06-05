@@ -19,28 +19,27 @@ In order to facilitate the integration of `new bing` into other `gpt`-like proje
 ### Example
 The following takes `curl` as an example
 ```
-curl -kL 'https://niansuhai-bingo.hf.space/api/v1/chat/completions' \
+curl -kL 'https://greff3-bingo.hf.space/api/v1/chat/completions' \
   -H 'Content-Type: application/json' \
   -d '{
-    "messages":[{"role":"user","content":"你好"}],
+    "messages":[{"role":"user","content":"Hello"}],
     "stream":true,
     "model":"Creative"
   }' \
 --compressed
 ```
 
-### 限制
- * 暂时只支持聊天(`/completions`)接口，其他接口如有需求，请在 [issue](https://github.com/weaigc/bingo/issues) 提出
- * 受 new bing 限制，暂不支持自定义历史记录
-
-## 调用方式
-除了使用 HTTP POST 请求来调用之外，你也可以使用自己熟悉的方式来调用 new bing，如 python 的 openai 库或其它语言的同名包。下面例举一下 Python 和 Node.js 的用法
+### limit
+  * Only the chat (`/completions`) interface is currently supported. If you have any needs for other interfaces, please raise them in [issue](https://github.com/greff379/gen-AI-2/issues)
+  * Due to new bing restrictions, custom history records are not currently supported.
+## Calling method
+In addition to calling new bing using HTTP POST requests, you can also call new bing using methods you are familiar with, such as python's openai library or packages of the same name in other languages. Here are some examples of how to use Python and Node.js
 
 ### Python
 ```
 import openai
 openai.api_key = "dummy"
-openai.api_base = "https://copilot.github1s.tk" # 这里可以改为你自己部署的服务，bingo 服务版本需要 >= 0.9.0
+openai.api_base = "https://greff3-bingo.hf.space" # Here you can change it to a service deployed by yourself，bingo Service version required >= 0.9.0
 
 # create a chat completion
 chat_completion = openai.ChatCompletion.create(model="Creative", messages=[{"role": "user", "content": "Hello"}])
@@ -49,11 +48,11 @@ chat_completion = openai.ChatCompletion.create(model="Creative", messages=[{"rol
 print(chat_completion.choices[0].message.content)
 ```
 
-流式输出
+Streaming output
 ```
 import openai
 openai.api_key = "dummy"
-openai.api_base = "https://copilot.github1s.tk" # 这里可以改为你自己部署的服务，bingo 服务版本需要 >= 0.9.0
+openai.api_base = "https://greff3-bingo.hf.space" # You can change this to your own deployed service. The bingo service version needs to be >= 0.9.0
 
 # create a chat completion
 completion = openai.ChatCompletion.create(model="Creative", stream=True, messages=[{"role": "user", "content": "Hello"}])
@@ -63,7 +62,7 @@ for chat_completion in completion:
 
 ```
 
-> 更多使用说明参考 https://github.com/openai/openai-python
+> More instructions for use https://github.com/openai/openai-python
 
 ### Node.js
 ```
@@ -71,7 +70,7 @@ import OpenAI from 'openai';
 
 const openai = new OpenAI({
   apiKey: 'dummy',
-  baseURL: 'https://copilot.github1s.tk' // 这里可以改为你自己部署的服务，bingo 服务版本需要 >= 0.9.0
+  baseURL: 'https://greff3-bingo.hf.space' // You can change this to your own deployed service. The bingo service version needs to be >= 0.9.0
 });
 
 async function main() {
@@ -87,14 +86,14 @@ async function main() {
 
 main();
 ```
-> 更多使用说明参考 https://github.com/openai/openai-node
+> For more instructions, please refer to https://github.com/openai/openai-node
 
 
 ## 在线演示
 
-1. https://huggingface.co/spaces/hf4all/chatbot-ui-bing [![Deploy Chatbot UI](https://img.shields.io/badge/点此部署-%F0%9F%A4%97-fff)](https://huggingface.co/login?next=%2Fspaces%2Fhf4all%2Fchatbot-ui-bing%3Fduplicate%3Dtrue%26visibility%3Dpublic)
-2. https://huggingface.co/spaces/hf4all/chatgpt-next-web-bing 
-[![Deploy ChatGPT Next Web](https://img.shields.io/badge/点此部署-%F0%9F%A4%97-fff)](https://huggingface.co/login?next=%2Fspaces%2Fhf4all%2Fchatgpt-next-web-bing%3Fduplicate%3Dtrue%26visibility%3Dpublic)
+1. https://huggingface.co/spaces/Greff3/Bingo [![Deploy Chatbot UI](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-sm.svg)](https://huggingface.co/login?next=%2Fspaces%2Fniansuhai%2FBingo%3Fduplicate%3Dtrue%26visibility%3Dpublic)
+2. https://huggingface.co/spaces/greff3/copilot
+[![Deploy Bing Copilot](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-on-spaces-sm.svg)](https://huggingface.co/login?next=%2Fspaces%2Fniansuhai%2Fcopilot%3Fduplicate%3Dtrue%26visibility%3Dpublic)
 
 
-[![效果图](./docs/images/openai.png)](https://huggingface.co/spaces/hf4all/chatgpt-next-web-bing)
+[renderings](./docs/images/openai.png)](https://huggingface.co/spaces/Greff3/Bingo)
