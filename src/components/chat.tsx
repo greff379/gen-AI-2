@@ -91,6 +91,7 @@ export default function Chat({ className }: ChatProps) {
           </div>
         </div>
       </div>
+      <div>
       <ChatPanel
         className="pt-24 z-10"
         isSpeaking={isSpeaking}
