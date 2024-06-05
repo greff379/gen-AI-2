@@ -22,7 +22,7 @@ import { ChatHistory } from './chat-history'
 import { PromptsManage } from './prompts'
 import { AdvanceSwither } from './advance-switcher'
 
-export type ChatProps = React.ComponentProps<'div'> & { initialMessages?: ChatMessageModel[] }
+export type ChatProps = React.ComponentProps & { initialMessages?: ChatMessageModel[] }
 
 export default function Chat({ className }: ChatProps) {
   const [expand, setExpand] = useState(false)
