@@ -1,25 +1,25 @@
-# Bingo OpenAI 
+# Bingo OpenAI
 
-为了方便将 `new bing` 接入到其他 `gpt` 类的项目，现开放 `OpenAI` 格式的 `API` 接口供大家调用。
+In order to facilitate the integration of `new bing` into other `gpt`-like projects, the `API` interface in the `OpenAI` format is now open for everyone to call.
 
-## 接口说明
-### 入参
- * url: /openai/chat/completions (PS: 为了方便兼容不同的项目，所有以 `/completions` 结尾的请求都会被支持)
- * Content-Type: application/json
- * 参数说明
-    * messages 输入的消息列表，完整格式参见 https://platform.openai.com/docs/guides/gpt/chat-completions-api
-    * model 模型名称（此字段被用于指定 new bing 风格，参数为 Creative、Balanced、Precise、gpt-4 中的一种）
-    * stream 是否使用流式输出，默认为 
+## Interface Description
+### Enter parameters
+  * url: /openai/chat/completions (PS: In order to facilitate compatibility with different projects, all requests ending with `/completions` will be supported)
+  * Content-Type: application/json
+  * Parameter Description
+     * messages input message list, see https://platform.openai.com/docs/guides/gpt/chat-completions-api for the complete format
+     * model model name (this field is used to specify the new bing style, and the parameter is one of Creative, Balanced, Precise, and gpt-4)
+     * stream whether to use streaming output, the default is
     
-### 出参
-  * Content-Type: application/json 或者 text/event-stream
-  * 参数说明
-    * choices 返回的消息内容，完整格式参见 https://platform.openai.com/docs/guides/gpt/chat-completions-response-format
-
-### 示例
-以下以 `curl` 为例
+### Output parameters
+   * Content-Type: application/json or text/event-stream
+   * Parameter Description
+     * The message content returned by choices. For the complete format, see https://platform.openai.com/docs/guides/gpt/chat-completions-response-format
+       
+### Example
+The following takes `curl` as an example
 ```
-curl -kL 'https://copilot.github1s.tk/api/v1/chat/completions' \
+curl -kL 'https://niansuhai-bingo.hf.space/api/v1/chat/completions' \
   -H 'Content-Type: application/json' \
   -d '{
     "messages":[{"role":"user","content":"你好"}],
