@@ -22,7 +22,7 @@ import { ChatHistory } from './chat-history'
 import { PromptsManage } from './prompts'
 import { AdvanceSwither } from './advance-switcher'
 
-export type ChatProps = React.ComponentProps & { initialMessages?: ChatMessageModel[] }
+export type ChatProps = React.ComponentProps<'div'> & { initialMessages?: ChatMessageModel[] }
 
 export default function Chat({ className }: ChatProps) {
   const [expand, setExpand] = useState(false)
@@ -56,7 +56,6 @@ export default function Chat({ className }: ChatProps) {
   const lastMessage = messages[messages.length - 1]
 
   return (
-    <div className={cn(bingStyle.toLowerCase(), { 'side-panel-expanded': expand })}>
       <PromptsManage insertPrompt={setInput} />
       <ChatHistory onExpaned={onExpaned} />
       <div className="global-background" />
@@ -91,7 +90,6 @@ export default function Chat({ className }: ChatProps) {
           </div>
         </div>
       </div>
-      <div>
       <ChatPanel
         className="pt-24 z-10"
         isSpeaking={isSpeaking}
