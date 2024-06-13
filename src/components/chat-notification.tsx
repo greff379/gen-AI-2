@@ -26,9 +26,9 @@ function getAction(error: ChatError, reset: () => void) {
   }
   if (error.code === ErrorCode.BING_TRY_LATER) {
     return (
-      <a href={`#dialog="reset"`}>
+      <ExternalLink href={`#dialog="reset"`}>
         The request failed, please try again manually
-      </a>
+      </ExternalLink>
     )
   }
   if (error.code === ErrorCode.BING_FORBIDDEN) {
@@ -41,8 +41,8 @@ function getAction(error: ChatError, reset: () => void) {
   if (error.code === ErrorCode.CONVERSATION_LIMIT) {
     return (
       <div>
-        当前话题已中止，请点击
-        <a href={`#dialog="reset"`}> Restart </a>
+        The current topic has been discontinued, please click
+        <ExternalLink href={`#dialog="reset"`}> Restart </ExternalLink>
         Start a new conversation
       </div>
     )
@@ -57,13 +57,13 @@ function getAction(error: ChatError, reset: () => void) {
   if (error.code === ErrorCode.BING_UNAUTHORIZED) {
     reset()
     return (
-      <a href={`#dialog="settings"`}No user information was obtained or the user information is invalid. Click here to reset</a>
+      <ExternalLink href={`#dialog="settings"`}No user information was obtained or the user information is invalid. Click here to reset</ExternalLink>
     )
   }
   if (error.code === ErrorCode.BING_IMAGE_UNAUTHORIZED) {
     reset()
     return (
-      <a href={`#dialog="settings"`}>Drawing requires user information. The system did not obtain valid user information. Click here to set it</a>
+      <ExternalLink href={`#dialog="settings"`}>Drawing requires user information. The system did not obtain valid user information. Click here to set it</ExternalLink>
     )
   }
   return error.message
